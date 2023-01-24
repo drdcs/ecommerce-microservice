@@ -17,6 +17,8 @@
         <module>inventory-service</module>
         <module>product-service</module>
         <module>order-service</module>
+        <module>discovery-server</module>
+        <module>api-gateway</module>
     </modules>
 
     <properties>
@@ -24,6 +26,8 @@
         <maven.compiler.target>17</maven.compiler.target>
         <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
         <swagger.version>3.0.0</swagger.version>
+        <reactive.version>2.7.5</reactive.version>
+        <spring-cloud.version>2021.0.5</spring-cloud.version>
     </properties>
 <!--    <dependencies>-->
 <!--                &lt;!&ndash;		SWAGGER&ndash;&gt;-->
@@ -41,6 +45,13 @@
     <dependencyManagement>
         <dependencies>
             <dependency>
+                <groupId>org.springframework.cloud</groupId>
+                <artifactId>spring-cloud-dependencies</artifactId>
+                <version>${spring-cloud.version}</version>
+                <type>pom</type>
+                <scope>import</scope>
+            </dependency>
+            <dependency>
                 <groupId>org.testcontainers</groupId>
                 <artifactId>testcontainers-bom</artifactId>
                 <version>1.17.6</version>
@@ -57,6 +68,11 @@
                 <groupId>io.springfox</groupId>
                 <artifactId>springfox-swagger-ui</artifactId>
                 <version>${swagger.version}</version>
+            </dependency>
+            <dependency>
+                <groupId>org.springframework.boot</groupId>
+                <artifactId>spring-boot-starter-webflux</artifactId>
+                <version>${reactive.version}</version>
             </dependency>
         </dependencies>
     </dependencyManagement>

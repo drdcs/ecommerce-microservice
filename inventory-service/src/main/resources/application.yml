@@ -1,7 +1,17 @@
+SERVER_PORT_SERVICE_DISCOVERY: 8761
+IP_ADDRESS_SERVICE_DISCOVERY: http://localhost
+
 server:
-  port: 8082
+  port: 0
+
+eureka:
+  client:
+    service-url:
+      defaultZone: ${IP_ADDRESS_SERVICE_DISCOVERY}:${SERVER_PORT_SERVICE_DISCOVERY}/eureka
 
 spring:
+  application:
+    name: inventory-service
   datasource:
     url: jdbc:postgresql://localhost:5432/inventorydb
     username: postgres
@@ -20,3 +30,5 @@ spring:
         format_sql: true
     database: postgresql
     database-platform: org.hibernate.dialect.PostgreSQLDialect
+
+

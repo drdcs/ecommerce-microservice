@@ -1,4 +1,18 @@
+
+SERVER_PORT_SERVICE_DISCOVERY: 8761
+IP_ADDRESS_SERVICE_DISCOVERY: http://localhost
+
+eureka:
+  client:
+    fetch-registry: true
+    register-with-eureka: true
+    service-url:
+      defaultZone: ${IP_ADDRESS_SERVICE_DISCOVERY}:${SERVER_PORT_SERVICE_DISCOVERY}/eureka
+
+
 spring:
+  application:
+    name: product-service
   data:
     mongodb:
       host: localhost
